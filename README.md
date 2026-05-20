@@ -6,7 +6,6 @@ Deep learning pipeline for thesis: DeiT-Small-Distilled (image classification) a
 ## Repository layout
 
 ```
-rhizome-thesis/
   notebooks/
     01_data_preparation.ipynb   # Roboflow download, split, config
     02_Deit_Train.ipynb         # DeiT training and evaluation
@@ -31,7 +30,7 @@ rhizome-thesis/
 4. Publish Output as Kaggle Dataset `nikachuu/data-prep` (config.json + dataset/).
 5. Run remaining downstream notebooks (attach Input dataset `data-prep`).
 
-See docs/WORKFLOW.md
+See WORKFLOW.md
 
 ## Kaggle paths
 
