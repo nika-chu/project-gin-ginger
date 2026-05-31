@@ -3,55 +3,7 @@
 ## Overview
 
 This project implements a two-stage deep learning pipeline for automated detection of rhizome rot in crop images. A **DeiT-Small-Distilled** transformer first classifies each image as *Healthy* or *Infected*; only images flagged as infected are passed to a **Faster R-CNN V2** detector that localises the damaged regions with bounding boxes. The final models are exported to ONNX and optimised with TensorRT for edge deployment on a Jetson Nano.
-
-Roboflow (annotate → export COCO 100/0/0)
-
-         │
-
-         ▼
-
-┌─────────────────────────────┐
-
-│  01-data-preparation.ipynb  │──► config.json \+ dataset/
-
-└─────────────────────────────┘
-
-         │
-
-         ▼  Publish as Kaggle Dataset
-
-         │
-
-         ├──────────────────────────┐
-
-         ▼                          ▼
-
-┌──────────────────┐    ┌───────────────────────────┐
-
-│ 02-deit-train    │    │ 03-faster-rcnn-train       │
-
-│ (classify)       │    │ (detect infected regions)  │
-
-└──────────────────┘    └───────────────────────────┘
-
-         │                          │
-
-         └──────────┬───────────────┘
-
-                    ▼
-
-         ┌──────────────────────┐
-
-         │ 04-export-inference  │──► ONNX \+ cascade demo
-
-         └──────────────────────┘
-
-                    │
-
-                    ▼
-
-         Jetson Nano → TensorRT → prototype
-
+        
 ---
 
 ## Phase 1 — Annotation (Roboflow)
